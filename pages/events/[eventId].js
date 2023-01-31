@@ -6,6 +6,7 @@ import EventLogistics from '@/components/event-detail/event-logistics'
 import EventSummary from '@/components/event-detail/event.summary'
 import ErrorAlert from '@/components/ui/error-alert'
 import { getEventById, getFeaturedEvents } from '@/helpers/api-utils'
+import Head from 'next/head'
 
 const EventDetailPage = (props) => {
   // const router = useRouter()
@@ -27,6 +28,13 @@ const EventDetailPage = (props) => {
   }
   return (
     <>
+      <Head>
+        <title>{event.title}</title>
+        <meta
+          name={event.description}
+          content='Fimd a lot of great events that allows you to evolve...'
+        />
+      </Head>
       <EventSummary title={event.title} />
       <EventLogistics
         date={event.date}
